@@ -1,0 +1,308 @@
+<odoo>
+    <template id="adm_uni.template_admission">
+        <t t-call="website.layout">
+            <t t-set="title">Admissions</t>
+            <style>
+                .pointer{
+                cursor: pointer;
+                }
+            </style>
+            <div class="oe_structure" />
+            <div class="oe_struture">
+                <main class="container p-4">
+                    <form action="/admission-university/inquiry" method="post"
+                    class="s_website_form form-horizontal container-fluid mt32" enctype="multipart/form-data">
+
+                        <input type="hidden" name="studentsCount" id="studentsCount" value="1" />
+
+                        <!-- Student -->
+                        <section class="card mt-2">
+                            <section class="card-header">
+                                <h1 class="text-info">Student</h1>
+                            </section>
+                            <section class="card-body">
+                                <div class="row">
+                                    <div class="form-group col-12 col-md">
+                                        <label for="txt1LastName">
+                                            Last Name
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="txt1LastName"
+                                            name="txtLastName" placeholder="Last Name" required="required" />
+                                    </div>
+                                    <div class="form-group col-12 col-md">
+                                        <label for="txt1MiddleName">Middle Name</label>
+                                        <input type="text" class="form-control" id="txt1MiddleName"
+                                            name="txtMiddleName" placeholder="Middle Name" />
+                                    </div>
+                                    <div class="form-group col-12 col-md">
+                                        <label for="txt1FirstName">
+                                            First Name
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="txt1FirstName"
+                                            name="txtFirstName" placeholder="First Name" required="required" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <label for="txtBirthdate">Birthdate</label>
+                                        <input type="date" class="form-control" id="txtBirthdate"
+                                            name="txtBirthdate" />
+                                    </div>
+                                    <div class="form-group col">
+                                        <label for="txt1Birthday">Gender</label>
+                                        <select class="custom-select" name="selGender">
+                                            <option value="m">Male</option>
+                                            <option value="f">Female</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-12 col-md-6">
+                                        <label for="txtFatherName">Father Name</label>
+                                        <input type="text" class="form-control" id="txtFatherName"
+                                            name="txtFatherName" placeholder="Father Name" />
+                                    </div>
+                                    <div class="form-group col-12 col-md-6">
+                                        <label for="txtMotherName">Mother Name</label>
+                                        <input type="text" class="form-control" id="txtMotherName"
+                                            name="txtMotherName" placeholder="Mother Name" />
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+
+                        <section class="card mt-2">
+                            <section class="card-header">
+                                <h1 class="text-info">Contact</h1>
+                            </section>
+                            <section class="card-body">
+                                <div class="row">
+                                    <div class="form-group col-12 col-md-6">
+                                        <label for="txtHomePhone">
+                                            Home Phone
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="tel" class="form-control" id="txtHomePhone"
+                                            name="txtHomePhone" placeholder="+01 234 56 78 90" pattern="\+?[0-9 -]+"
+                                            required="required" />
+                                    </div>
+                                    <div class="form-group col-12 col-md-6">
+                                        <label for="txtEmail">Email</label>
+                                        <input type="text" class="form-control" id="txtEmail" name="txtEmail"
+                                            placeholder="example@email.com" />
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+
+
+
+
+                        <!-- School Information -->
+                        <section class="card mt-2">
+                            <section class="card-header">
+                                <h1 class="text-info">School Information</h1>
+                            </section>
+                            <section class="card-body">
+                                <div class="row">
+                                    <div class="form-group col-12 col-md-6">
+                                        <label for="txtCurrentSchool">Current School</label>
+                                        <input type="text" class="form-control" id="txtCurrentSchool"
+                                            name="txtCurrentSchool" placeholder="Current School" />
+                                    </div>
+
+                                    <div class="form-group col-12 col-md-6">
+                                        <label for="txtPreviousSchool">Previous School</label>
+                                        <input type="text" class="form-control" id="txtPreviousSchool"
+                                            name="txtPreviousSchool" placeholder="Previous School" />
+                                    </div>
+
+                                    <div class="form-group col-12 col-md-6">
+                                        <label for="txtGPA">GPA</label>
+                                        <input type="text" class="form-control" id="txtGPA" name="txtGPA"
+                                            placeholder="GPA" />
+                                    </div>
+
+                                    <div class="form-group col-12 col-md-6">
+                                        <label for="txtCumulativeGrade">Cumulative Grade</label>
+                                        <input type="text" class="form-control" id="txtCumulativeGrade"
+                                            name="txtCumulativeGrade" placeholder="Cumulative Grade" />
+                                    </div>
+
+
+                                    <div class="form-group col-12 col-md-6">
+                                        <label for="txtRegionalExam">Regional Exam</label>
+                                        <input type="text" class="form-control" id="txtRegionalExam"
+                                            name="txtRegionalExam" placeholder="Regional Exam" />
+                                    </div>
+
+                                    <div class="form-group col-12 col-md-6">
+                                        <label for="txtBACGrade">BAC Grade</label>
+                                        <input type="text" class="form-control" id="txtBACGrade"
+                                            name="txtBACGrade" placeholder="BAC Grade" />
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+
+                        <!-- Home information -->
+                        <section class="card mt-2">
+                            <section class="card-header">
+                                <h1 class="text-info">Address Information</h1>
+                            </section>
+                            <section class="card-body">
+                                <div class="row">
+                                    <div class="form-group col-12 col-md-6">
+                                        <label for="selCountry">
+                                            Country
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <select type="text" class="custom-select" id="selCountry"
+                                            name="selCountry" placeholder="Country" required="required">
+                                            <option value="-1">-Select a country-</option>
+                                            <t t-foreach="countries" t-as="country">
+                                                <option t-att-value="country.id">
+                                                    <t t-esc="country.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-12 col-md-6">
+                                        <label for="selState">
+                                            State
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <select type="text" class="custom-select" id="selState" name="selState"
+                                            placeholder="State" required="required">
+                                            <option value='-1'>-Select a state-</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-12 col-md">
+                                        <label for="txtCity">
+                                            City
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="txtCity" name="txtCity"
+                                            placeholder="City" required="required" />
+                                    </div>
+                                    <div class="form-group col-12 col-md">
+                                        <label for="txtStreetAddress">
+                                            Street Address
+                                            <span class="text-danger">
+                                                *
+                                            </span>
+                                        </label>
+                                        <input type="text" class="form-control" id="txtStreetAddress"
+                                            name="txtStreetAddress" placeholder="Street Address" required="required" />
+                                    </div>
+                                    <div class="form-group col-12 col-md">
+                                        <label for="txtZip">
+                                            Zip
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="txtZip" name="txtZip"
+                                            maxlength="10" placeholder="Zip" required="required" />
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+
+                        <section class="card mt-2">
+                            <section class="card-header">
+                                <h1 class="text-info">Documentation</h1>
+                            </section>
+                            <section class="card-body">
+                                <div class="row w-100 m-0">
+                                    <div class="form-group col-12 col-md-6">
+                                        <div class="custom-file">
+                                            <input type="file" name="fileLetterOfMotivation"
+                                                class="pointer file custom-file-input" data-show-upload="true"
+                                                data-show-caption="true" lass="file" data-show-preview="true"
+                                                id="fileLetterOfMotivation" />
+                                            <label class="custom-file-label" for="fileLetterOfMotivation">Letter of motivation</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-12 col-md-6">
+                                        <div class="custom-file">
+                                            <input type="file" name="fileCV"
+                                                class="pointer file custom-file-input" data-show-upload="true"
+                                                data-show-caption="true" lass="file" data-show-preview="true"
+                                                id="fileCV" />
+                                            <label class="custom-file-label" for="fileCV">C.V</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-12 col-md-6">
+                                        <div class="custom-file">
+                                            <input type="file" name="fileGradeTranscript"
+                                                class="pointer file custom-file-input" data-show-upload="true"
+                                                data-show-caption="true" lass="file" data-show-preview="true"
+                                                id="fileGradeTranscript" />
+                                            <label class="custom-file-label" for="fileGradeTranscript">Grade transcript</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-12 col-md-6">
+                                        <div class="custom-file">
+                                            <input type="file" name="fileLettersOfRecommendation"
+                                                class="pointer file custom-file-input" data-show-upload="true"
+                                                data-show-caption="true" lass="file" data-show-preview="true"
+                                                id="fileLettersOfRecommendation" />
+                                            <label class="custom-file-label" for="fileLettersOfRecommendation">Letters of recommendation</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+                        <section class="card mt-2">
+                            <section class="card-body">
+                                <div class="row w-100 m-0">
+                                    <div class="form-group col-12">
+                                        <label for="selPreferredContactTime">
+                                            Preferred Contact Time
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <select type="text" class="form-control" id="selPreferredContactTime"
+                                            name="selPreferredContactTime" required="required">
+                                            <option value="-1">- Select an option -</option>
+                                            <t t-foreach="contact_times" t-as="contact_time">
+                                                <option t-att-value="contact_time.id">
+                                                    <t t-esc="contact_time.name" /> 
+                                            - (<t t-esc="contact_time.from_time" />-<t t-esc="contact_time.to_time" />)
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="selPreferredDegreeProgram">
+                                            Preferred Degree Program
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <select type="text" class="form-control" id="txtPreferredContactTime"
+                                            name="txtPreferredContactTime" required="required">
+                                            <option value="-1">- Select an option -</option>
+                                            <t t-foreach="degree_programs" t-as="degree_program">
+                                                <option t-att-value="degree_program.id">
+                                                    <t t-esc="degree_program.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+
+                        <div class="row justify-content-center m-3">
+                            <button type="submit" class="btn btn-primary">Request</button>
+                        </div>
+                    </form>
+                </main>
+            </div>
+            <script type="text/javascript" src="/adm_uni/static/js/admission_university.js"></script>
+        </t>
+    </template>
+</odoo>
